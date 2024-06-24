@@ -30,6 +30,7 @@
     "jquery": "~2.1.4",
     "less": "~2.5.1",
     "notie": "*",
+    "progressbar.js": "~1.0.0",
     "startbootstrap-sb-admin-2": "~1.0.8"
   }
 }

@@ -1,0 +1,222 @@
+@import "fonts";
+@import "animations";
+
+body {
+  font-family: open-sans;
+}
+.header-logging {
+  text-align: center;
+  width: 80%;
+}
+.header {
+  text-align: center;
+  width: 80%;
+  margin-top: 1%;
+  h1 {
+    $fade-time-1 : 1.5s;
+    -webkit-animation: fadein $fade-time-1; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein $fade-time-1; /* Firefox < 16 */
+    -ms-animation: fadein $fade-time-1; /* Internet Explorer */
+    -o-animation: fadein $fade-time-1; /* Opera < 12.1 */
+    animation: fadein $fade-time-1;
+  }
+  h3 {
+    $fade-time-2 : 2s;
+    -webkit-animation: fadein $fade-time-2; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein $fade-time-2; /* Firefox < 16 */
+    -ms-animation: fadein $fade-time-2; /* Internet Explorer */
+    -o-animation: fadein $fade-time-2; /* Opera < 12.1 */
+    animation: fadein $fade-time-2;
+  }
+}
+.button-choice {
+  margin-top: 20px !important;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  $fade-time-3 : 2s;
+  -webkit-animation: fadein $fade-time-3; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein $fade-time-3; /* Firefox < 16 */
+  -ms-animation: fadein $fade-time-3; /* Internet Explorer */
+  -o-animation: fadein $fade-time-3; /* Opera < 12.1 */
+  animation: fadein $fade-time-3;
+  a button {
+    margin-right: 30px;
+    margin-bottom: 20px;
+    margin-left: auto;
+  }
+  a button:focus {
+    color: white;
+  }
+  a .active {
+    color: white;
+  }
+}
+.options-field {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  form {
+    width: 100%;
+    div {
+      width: 100%;
+      input[type="text"] {
+        width: 95.5%;
+      }
+      input {
+        height: 50px;
+        background-color: #f0f3f4;
+        font-size: 20px;
+      }
+    }
+  }
+  h2 {
+    a {
+      color: #2980b9;
+      font-family: OpenSans-Regular;
+    }
+  }
+}
+.logoutput {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  background-color: #141414;
+  border-radius: 5px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #000000;
+  color: white;
+  padding-top: 10px;
+  font-size: 20px;
+  ul {
+    list-style-type: none;
+  }
+}
+.status {
+  margin-top: 10px;
+  height: 150px;
+  width: 150px;
+  div {
+    top: 40% !important;
+    font-size: 40px !important;
+  }
+}
+.header-logging {
+  margin-top: 1%;
+}
+.done-status {
+  color: #27ae60 !important;
+}
+
+#err-modal-button, #config-modal-button {
+  margin-left: -1000px;
+}
+#err-modal, #config-modal {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  .modal-dialog {
+    width: 100% !important;
+    margin-top: 7.9% !important;
+    height: 400px !important;
+    vertical-align: middle !important;
+    .modal-content {
+      vertical-align: middle !important;
+      border-radius: 0 !important;
+      border: 0 !important;
+      -webkit-box-shadow: -40px 10px 0px -200px rgba(0,0,0,0.75) !important;
+      -moz-box-shadow: -40px 10px 0px -200px rgba(0,0,0,0.75) !important;
+      box-shadow: -40px 10px 0px -200px rgba(0,0,0,0.75) !important;
+      .modal-header, .modal-footer {
+        border: 0 !important;
+      }
+      .modal-footer {
+        text-align: center;
+        padding-bottom: 30px;
+      }
+      .modal-header {
+        vertical-align: middle !important;
+        text-align: center;
+        font-family: OpenSans-Regular;
+        h1 {
+          margin-bottom: 0 !important;
+        }
+      }
+      .modal-body {
+        vertical-align: middle !important;
+        text-align: center;
+        color: #e74c3c;
+        h3 {
+          margin-top: 0 !important;
+        }
+      }
+    }
+  }
+}
+
+#config-modal {
+  .modal-dialog {
+    margin-top: 0.35% !important;
+    .modal-content {
+      padding-left: 10px;
+      .modal-header {
+        text-align: left;
+      }
+      .modal-footer {
+        text-align: left;
+      }
+      .modal-body {
+        text-align: left;
+        color: black;
+      }
+    }
+  }
+}
+
+.stats-logging {
+  ul {
+    list-style: none;
+    width: 100%;
+    padding-left: 0;
+    text-align: center;
+    li {
+      display: inline;
+      font-size: 1.12em;
+      margin-right: 5%;
+    }
+  }
+}
+.stats-logging-active {
+  color: #2980b9;
+}
+
+.stats-status {
+  font-size: 1.12em;
+  font-family: OpenSans-Regular;
+  text-align: center;
+  margin-bottom: 14.09px;
+}
+
+.config-app-form {
+  div {
+    font-size: 1.12em;
+    font-family: OpenSans-Regular;
+    label {
+      font-weight: normal !important;
+      margin-left: 0.5px;
+    }
+    input {
+      width: 25% !important;
+    }
+  }
+}
+
+#stat-preparing, #stat-config, #stat-cloning {
+  color: #2ecc71;
+  font-family: OpenSans-Regular;
+}
+
+#stat-build {
+  color: #2980b9;
+  font-family: OpenSans-Bold;
+}

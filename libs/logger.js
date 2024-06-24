@@ -26,30 +26,28 @@ var logger = exports.logger = new winston.Logger({
 });
 
 exports.createlog = function createlog(x) {
-  fs.stat('./logs/wos.log', function(err, stat){
-    if(err === null){
-        // do noting
-      }
-      else if( err.code == 'ENOENT'){
-        fs.writeFile("./logs/wos.log", "-------------------Jakhu-logs--------------------", function(err) {
-            if(err) {
-                return console.log(err);
-            }
-            if(x !== "test"){
-              console.log(clicolour.cyanBright("jakhu ") + clicolour.yellowBright("oobe ") + "Created log file");
-            }
+    fs.stat('./logs/wos.log', function(err, stat) {
+        if (err === null) {
+            // do noting
+        } else if (err.code == 'ENOENT') {
+            fs.writeFile("./logs/wos.log", "-------------------Jakhu-logs--------------------", function(err) {
+                if (err) {
+                    return console.log(err);
+                }
+                if (x !== "test") {
+                    console.log(clicolour.cyanBright("jakhu ") + clicolour.yellowBright("oobe ") + "Created log file");
+                }
 
-        });
+            });
 
-      }
-      else{
-        error.throwError("BOOT_CHECKS_FILES_"+err.code+":"+"logs", err, err.code);
-          }
-        });
+        } else {
+            error.throwError("BOOT_CHECKS_FILES_" + err.code + ":" + "logs", err, err.code);
+        }
+    });
 };
 
 module.exports.stream = {
-    write: function(message, encoding){
+    write: function(message, encoding) {
         logger.info(message);
     }
 };

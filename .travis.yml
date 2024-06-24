@@ -1,31 +1,37 @@
 language: node_js
 node_js:
-- stable
-- 5.4.1
-- 5.4.0
-- 5.3.0
-- 4.2.6
+  - stable
+  - 5.8.0
+  - 5.4.1
+  - 5.4.0
+  - 5.3.0
+  - 4.4.0
+# Use the latest infrastructure
 group: edge
+# Add-ons for compiling native extentions (c++) & modules' native extentions
 addons:
   apt:
     sources:
     - ubuntu-toolchain-r-test
     packages:
-    - g++-4.8
-    - g++-4.9
+      - g++-4.8
+      - g++-4.9
+      - libstdc++-4.9-dev
 os:
-- linux
+  - linux
 services:
-- mongodb
+  - mongodb
 env:
   global:
-  - CXX=g++-4.8
-  - JAKHU_RUN_TYPE=local
-  - JAKHU_TEST=true
+    # Use g++-4.8 as a compiler
+    - CXX=g++-4.8
+    # Avoid docker
+    - JAKHU_RUN_TYPE=local
+    - JAKHU_TEST=true
 install:
-- npm install -g bower mocha nyc codeclimate-test-reporter coffee-script
-- npm install
-- bundle install
+  - npm install -g bower mocha nyc codeclimate-test-reporter coffee-script
+  - npm install
+  - bundle install
 script: make ci
 notifications:
   webhooks:

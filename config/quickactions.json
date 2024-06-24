@@ -1,0 +1,16 @@
+{
+  "actions": [
+    {
+      "text": "New web app",
+      "url": "/dashboard/new/app"
+    },
+    {
+      "text": "Make a note",
+      "url": "/dashboard/note"
+    },
+    {
+      "text": "View production stats",
+      "url": "/dashboard/note"
+    }
+  ]
+}

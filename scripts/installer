@@ -1,0 +1,39 @@
+#!/usr/env node
+'use strict'
+const com = require('commander');
+const mkdirp = require('mkdirp');
+const path = require('path');
+const fs = require('fs');
+const PWD = process.env.PWD;
+const steps = 1;
+com
+  .version('1.0.0')
+  .option('-c, --configure', 'Configures jakhu with default options')
+  .option('-f, --file <file>', 'Use the specified file as the installer & config options')
+  .option('-v, --verbose', 'Use the specified file as the installer & config options')
+  .parse(process.argv)
+
+// Verbose function
+const verbose = (text) => {
+  if (com.verbose) {
+    console.log(`[VERBOSE] ${text}`);
+  }
+}
+
+console.log("We're finishing off installing jakhu...");
+console.log("Please wait whilest we configure jakhu & check if all external deps are met...\n");
+verbose('Checking if the logs directory exists...')
+fs.stat(path.join(PWD, 'logs'), function (err, stats) {
+  if (err) {
+    verbose('Creating logs directory...')
+    mkdirp(path.join(PWD, 'logs'), function (err) {
+      if (err) {
+        throw err;
+      }
+      verbose('Logs directory created')
+    })
+  } else {
+    verbose('Logs directory exists. Skipping...')
+  }
+  console.log(`Done step 1 of ${steps}`);
+});

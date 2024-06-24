@@ -8,10 +8,12 @@ var config = require('jakhu-config');
 var mkdirp = require('mkdirp');
 // parse YAML string
 module.exports = {
-loadconfig: function loadconfig() {
-  //load();
-}, getdata: function getdata() {
-  // parse YAML
-  var parsed = YAML.parse(fs.readFileSync('./config/main.yml','utf8'));
-  return parsed;
-}};
+    loadconfig: function loadconfig() {
+        //load();
+    },
+    getdata: function getdata() {
+        // parse YAML
+        var parsed = YAML.parse(fs.readFileSync('./config/main.yml', 'utf8'));
+        return parsed;
+    }
+};

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>New Web App | Jakhu</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Our stuff -->
+    <link rel="stylesheet" href="/css/new-web-app-build.css" media="screen" title="no title" charset="utf-8">
+    <!-- Custom, 3rd party CSS -->
+    <link href="/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container header-logging" id="header">
+      <h1>Building your repo...</h1>
+      <h3>Repo: <%=repo%></h3>
+    </div>
+    <div class="container status" id="status"></div>
+    <div class="container stats-status">
+      <p id="stat-status-text">Building...</p>
+    </div>
+    <div class="container stats-logging">
+      <ul>
+        <li id="stat-preparing">Preparing <span id="stat-preparing-percent">100%</span></li>
+        <li id="stat-cloning">Cloning <span id="stat-cloning-percent">100%</span></li>
+        <li id="stat-config">Configuring <span id="stat-config-percent">100%</span></li>
+        <li id="stat-build">Building <span id="stat-build-percent">0%</span></li>
+      </ul>
+    </div>
+    <!-- Button trigger modal - hidden -->
+    <div id="err-modal-react"></div><!-- /.modal -->
+
+    <!-- hidden button to trigger clicking -->
+    <button id="err-modal-button" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#err-modal">
+      Launch demo modal
+    </button>
+    <!-- hidden button to trigger clicking -->
+    <button id="config-modal-button" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#config-modal">
+      Launch demo modal
+    </button>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- React -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <script src="/react/dist/react.min.js" type="text/javascript"></script>
+    <script src="/react-dom/dist/react-dom.min.js" type="text/javascript"></script>
+    <script src="/js/new-web-app-react.jsx" charset="utf-8" type="text/babel"></script>
+    <!-- Custom js -->
+    <script src="/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/progressbar.js/dist/progressbar.min.js" charset="utf-8"></script>
+
+    <!-- jQuery -->
+    <script src="/jquery/dist/jquery.min.js"></script>
+
+    <script type="text/babel">
+    var cloneid = Math.round(Math.random() * 100)
+    // progressbar
+    var circle = new ProgressBar.Circle('#status', {
+      color: '#2980b9',
+      strokeWidth: 3,
+      trailWidth: 1,
+      duration: 1500,
+      text: {
+        value: '0'
+      },
+      step: function(state, bar) {
+        bar.path.setAttribute('stroke', state.color);
+        if (bar.value() === 1) {
+          bar.setText('<i class="fa fa-check done-status"></i>').toFixed(0);
+        } else {
+          bar.setText((bar.value() * 100).toFixed(0));
+        }
+      }
+    });
+    circle.animate(100 / 4 / 100 * 3, {
+      from: {color: '#2980b9'},
+      to: {color: '#2980b9'}
+    })
+
+    // React modal
+    var ErrModal = React.createClass({
+      render: function () {
+        return (
+          <div id="err-modal" className="modal fade" tabindex="-1" role="dialog">
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h1>Error</h1>
+                </div>
+                <div className="modal-body">
+                  <h3>{this.props.err}</h3>
+                </div>
+                <div className="modal-footer">
+                  <a href="/dashboard/new/app"><button type="button" className="btn btn-primary btn-outline"><i className="fa fa-arrow-left"></i>  Go back</button></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        )
+      }
+    })
+    // Socket.io
+    var socket = io.connect();
+    socket.emit('repobuild', {repo: '<%=repo%>'})
+    // VARS
+    var runningFont = 'OpenSans-Bold'
+    var completeFont = 'OpenSans-Regular'
+    </script>
+  </body>
+</html>

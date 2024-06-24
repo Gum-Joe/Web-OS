@@ -20,6 +20,14 @@ $nav2 : #000080;*/
   font-family: FiraSans-UltraLight;
   src: url(/fonts/fira-sans/FiraSans-UltraLight.otf);
 }
+body {
+  font-family: OpenSans-Regular;
+}
+
+.panel-badges-cus, .page-header {
+  font-family: Open-Sans;
+}
+
 #navbar-topper-a {
   position: fixed;
   width: 100%;
@@ -85,24 +93,104 @@ $nav2 : #000080;*/
 }
 #navbar-topper-a ul .open a {
   font-family: open-sans;
-  background-color: #1a1a1a;
+  background: #1a1a1a;
 }
 #navbar-topper-a .sidebar {
-  background-color: #0e131b !important;
+  background: linear-gradient(to right, #121a21, #0e131b) !important;
 }
 #navbar-topper-a .sidebar div ul li {
-  border-bottom-color: #0e131b !important;
+  border-bottom-color: #17212b !important;
 }
 #navbar-topper-a .sidebar div ul li a {
-  background-color: #0e131b !important;
+  background: linear-gradient(to right, #121a21, #0e131b) !important;
 }
 
 #wrapper {
-  background-color: #0e131b;
+  background: linear-gradient(to right, #121a21, #0e131b);
 }
 
-.page-header {
-  margin-top: 70px;
+@media screen and (max-width: 768px) {
+  .page-header {
+    margin-top: 116px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .page-header {
+    margin-top: 70px;
+  }
+}
+.no-apps-panel-head {
+  text-align: center;
+  border-style: dashed;
+  border-width: 3px;
+  border-color: #bdc3c7;
+  padding-top: 10px;
+  padding-bottom: 40px;
+  background-color: #f1f2f3;
+  border-radius: 5px;
+  font-family: OpenSans-Regular;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.no-apps-panel-head h5 {
+  color: #7f8c8d;
+}
+.no-apps-panel-head a button {
+  border-color: #34495e !important;
+  color: #34495e !important;
+}
+.no-apps-panel-head a button:hover {
+  background-color: #34495e !important;
+  color: #ecf0f1 !important;
+}
+.no-apps-panel-head a {
+  text-decoration: none;
+}
+
+#quickactions {
+  border-color: #2980b9;
+}
+#quickactions .panel-heading {
+  background-color: #2980b9;
+}
+
+#appstable tbody tr #viewbutton a {
+  color: #2c3e50 !important;
+}
+
+.alt-success-cus th {
+  background: #2c3e50 !important;
+  color: #ecf0f1;
+}
+
+#quickactions-react {
+  padding-top: 21px;
+}
+
+#quickactions-react a button {
+  font-size: 17px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+
+#quickactions-react a {
+  text-decoration: none;
+}
+
+.open-sans-font {
+  font-family: open-sans;
+}
+
+.open-sans-normal {
+  font-family: OpenSans-Regular;
+}
+
+@media only screen and (min-width: 768px) {
+  #hamburger-bootstrap-cus {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=dashboard.css.map */

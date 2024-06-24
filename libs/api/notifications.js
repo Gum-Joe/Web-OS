@@ -5,7 +5,7 @@ let lib = module.exports = {};
  * Send a notification
  * @param text {String} Text for notification
  * @param glyph {String} Glyph for notification
-*/
+ */
 lib.emit = (app, text, glyph) => {
-  return `<i class="fa ${glyph} fa-fw"></i> ${text}`;
+    return `<i class="fa ${glyph} fa-fw"></i> ${text}`;
 }
